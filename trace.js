@@ -114,6 +114,16 @@ const main = async () => {
       //tracer.on('close', () => {
       //});
 
+      const end = () => {
+        console.log()
+        console.log('Trace complete.')
+        console.log()
+      }
+
+      process.on('exit', ()=>{
+        end()
+      })
+
       tracer.trace(ip);
     })
     await program.parseAsync(process.argv)
